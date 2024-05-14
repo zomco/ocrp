@@ -1,5 +1,5 @@
 import '@/app/ui/global.css';
-import { inter } from '@/app/ui/fonts';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 export default function RootLayout({
   children,
@@ -7,8 +7,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
-    </html>
+      <html lang="en">
+        <body>
+          <AntdRegistry>{children}</AntdRegistry>
+        </body>
+      </html>
   );
 }
