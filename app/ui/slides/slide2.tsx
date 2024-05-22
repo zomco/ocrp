@@ -14,6 +14,10 @@ import dc12 from "@/public/slides/dc12.png";
 import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
+import {zcoolKuaiLe} from '@/app/ui/fonts';
+import dc29 from "@/public/slides/dc29.png";
+import dc23 from "@/public/slides/dc23.png";
+import dc24 from "@/public/slides/dc24.png";
 
 export default function Slide2() {
     return (
@@ -36,7 +40,9 @@ export default function Slide2() {
                 <Image
                     className="absolute top-[-50%] left-[15%] w-[30%]"
                     src={dc9} alt="dc9"/>
-                <div className="absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center">报名须知</div>
+                <div
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className}`}>报名须知
+                </div>
             </div>
             <div className="absolute z-[6] top-[20%] left-[50%] translate-x-[-50%] w-[80vw] h-[60vh]">
                 <Image fill src={dc6} alt="dc6"/>
@@ -51,7 +57,8 @@ export default function Slide2() {
                     src={dc7} alt="dc7"/>
                 <div className="absolute w-full pt-10 px-6 text-[0.8rem]">
                     <p>1、本赛会课程为秋色赛会公益类暑假班；</p>
-                    <p>2、课程接受社会报名，限7~16周岁的学生报名，且每人仅限参与一项，优秀作品参与赛会评比；每门课程为30个名额，额满为止；报名者须按要求认真填写真实信息，选择参与课程(“佛山剪纸”、“佛山木雕”、“岭南书法”、“大良鱼灯” 、“小龙舟制作”)；填写信息与本人不符者均视为自动放弃；成功报名后，请学生家长联系工作人员，加入相应的“课程通知群”；</p>
+                    <p>2、课程接受社会报名，限7~16周岁的学生报名，且每人仅限参与一项，优秀作品参与赛会评比；每门课程为30个名额，额满为止；报名者须按要求认真填写真实信息，选择参与课程(“佛山剪纸”、“佛山木雕”、“岭南书法”、“大良鱼灯”
+                        、“小龙舟制作”)；填写信息与本人不符者均视为自动放弃；成功报名后，请学生家长联系工作人员，加入相应的“课程通知群”；</p>
                     <p>3、由于课程的连贯性，凡报名者需确保出勤率，并积极交作品参加比赛，不得无故缺席和迟到早退，如违反上述规定将列入黑名单，影响再次参与相关活动。请家长留意上课的时间和地点，尊重小朋友的意愿和爱好，谨慎报名，坚持上课；</p>
                 </div>
             </div>

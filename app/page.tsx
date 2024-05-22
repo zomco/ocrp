@@ -37,7 +37,6 @@ export default async function Page() {
                     <Slide9 />
                 </Carousel>
             </div>
-
         </main>
     );
 }

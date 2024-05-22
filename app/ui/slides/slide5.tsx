@@ -14,6 +14,7 @@ import dc12 from "@/public/slides/dc12.png";
 import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
+import {zcoolKuaiLe} from '@/app/ui/fonts';
 
 export default function Slide5() {
     return (
@@ -37,7 +38,7 @@ export default function Slide5() {
                     className="absolute top-[-50%] left-[15%] w-[30%]"
                     src={dc9} alt="dc9"/>
                 <div
-                    className="absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center">上课时间
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className}`}>上课时间
                 </div>
             </div>
             <div className="absolute z-[6] top-[20%] left-[50%] translate-x-[-50%] w-[80vw] h-[60vh]">
@@ -52,7 +53,7 @@ export default function Slide5() {
                     className="absolute top-[-6%] right-[10%] w-[15%]"
                     src={dc7} alt="dc7"/>
                 <div className="absolute w-full pt-10 px-6 text-[0.8rem]">
-                    <div>
+                    <div className="text-center content-center">
                         <p>佛山剪纸</p>
                         <p>授课老师：XXX</p>
                         <p>授课地点：顺联公园里三楼中庭</p>
@@ -61,7 +62,7 @@ export default function Slide5() {
                         <p>8 月 5 日、29 日</p>
                         <p>周六上午 09:00 - 11:30</p>
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-4 text-center content-center">
                         <p>佛山狮头</p>
                         <p>授课老师：XXX</p>
                         <p>授课地点：顺联公园里三楼中庭</p>

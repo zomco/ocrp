@@ -14,10 +14,10 @@ import dc11 from "@/public/slides/dc11.png";
 import dc12 from "@/public/slides/dc12.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
-import { Button, Checkbox, Form, Input, Select } from 'antd';
-import dc13 from "@/public/slides/dc13.png";
+import {Button, Form, Input, Select} from 'antd';
+import {zcoolKuaiLe} from '@/app/ui/fonts';
 
-const { Option } = Select;
+const {Option} = Select;
 
 export default function Slide6() {
     return (
@@ -41,7 +41,7 @@ export default function Slide6() {
                     className="absolute top-[-50%] left-[15%] w-[30%]"
                     src={dc9} alt="dc9"/>
                 <div
-                    className="absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center">报名表
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className}`}>报名表
                 </div>
             </div>
             <div className="absolute z-[32] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[60%]">

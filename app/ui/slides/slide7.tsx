@@ -15,6 +15,8 @@ import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import dc30 from "@/public/slides/dc30.png";
 import React from "react";
+import {zcoolKuaiLe} from '@/app/ui/fonts';
+
 
 export default function Slide7() {
     return (
@@ -38,7 +40,7 @@ export default function Slide7() {
                     className="absolute top-[-50%] left-[15%] w-[30%]"
                     src={dc9} alt="dc9"/>
                 <div
-                    className="absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center">授课地点
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className}`}>授课地点
                 </div>
             </div>
             <div className="absolute z-[6] top-[20%] left-[50%] translate-x-[-50%] w-[80vw] h-[60vh]">
@@ -56,7 +58,7 @@ export default function Slide7() {
                     <Image
                         className="w-full"
                         src={dc30} alt="dc15"/>
-                    <div className="mt-4">
+                    <div className="mt-4 text-center content-center">
                         <p>授课地点：顺联公园里三楼中庭</p>
                         <p>（佛山市南海区季华东路27号）</p>
                         <p>活动咨询：廖老师 0757-28338073</p>

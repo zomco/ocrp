@@ -14,6 +14,7 @@ import dc12 from "@/public/slides/dc12.png";
 import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
+import {zcoolKuaiLe} from '@/app/ui/fonts';
 
 export default function Slide3() {
     return (
@@ -37,7 +38,7 @@ export default function Slide3() {
                     className="absolute top-[-50%] left-[15%] w-[30%]"
                     src={dc9} alt="dc9"/>
                 <div
-                    className="absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center">报名须知
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className}`}>报名须知
                 </div>
             </div>
             <div className="absolute z-[6] top-[20%] left-[50%] translate-x-[-50%] w-[80vw] h-[60vh]">
