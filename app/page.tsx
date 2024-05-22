@@ -1,4 +1,6 @@
-import React from 'react'
+'use client';
+
+import React, {useState} from 'react'
 import Slide1 from './ui/slides/slide1';
 import Slide2 from './ui/slides/slide2';
 import Slide3 from './ui/slides/slide3';
@@ -11,8 +13,8 @@ import Slide9 from './ui/slides/slide9';
 import { Carousel } from 'antd';
 
 
-export default async function Page() {
-
+export default function Page() {
+    const [current, setCurrent] = useState(1);
     return (
         <main className="flex justify-center">
             <div className="w-screen h-screen portrait:hidden flex justify-center items-center">
@@ -25,16 +27,21 @@ export default async function Page() {
                     autoplay={false}
                     dotPosition="left"
                     infinite={false}
+                    fade
+                    afterChange={(curr) => {
+                        console.log(current, curr);
+                        setCurrent(curr);
+                    }}
                 >
-                    <Slide1 />
-                    <Slide2 />
-                    <Slide3 />
-                    <Slide4 />
-                    <Slide5 />
-                    <Slide6 />
-                    <Slide7 />
-                    <Slide8 />
-                    <Slide9 />
+                    <Slide1 shown={ current === 0 }/>
+                    <Slide2 shown={ current === 1 }/>
+                    <Slide3 shown={ current === 2 }/>
+                    <Slide4 shown={ current === 3 }/>
+                    <Slide5 shown={ current === 4 }/>
+                    <Slide6 shown={ current === 5 }/>
+                    <Slide7 shown={ current === 6 }/>
+                    <Slide8 shown={ current === 7 }/>
+                    <Slide9 shown={ current === 8 }/>
                 </Carousel>
             </div>
         </main>

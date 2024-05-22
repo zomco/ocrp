@@ -19,7 +19,7 @@ import {zcoolKuaiLe} from '@/app/ui/fonts';
 
 const {Option} = Select;
 
-export default function Slide6() {
+export default function Slide6({ shown } : { shown: boolean }) {
     return (
         <div className="relative h-screen">
             <Image className="absolute z-[-1]" fill src={bg} alt="bg"/>
@@ -27,36 +27,49 @@ export default function Slide6() {
                 className="absolute z-[2]" fill
                 src={dc2} alt="dc2"/>
             <Image
-                className="absolute z-[3]" fill
+                className="absolute z-[3] transition-all" fill
+                style={{transform: shown ? 'translateY(0em)' : 'translateY(8rem)', opacity: shown ? '1' : '0' }}
                 src={dc3} alt="dc3"/>
             <div className="absolute z-[5] top-[10%] left-[50%] translate-x-[-50%] w-[50vw] h-[8vh]">
-                <Image fill src={dc5} alt="dc5"/>
                 <Image
-                    className="absolute top-[-50%] right-[2%] w-[30%]"
+                    className="transition-all"
+                    style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0' }}
+                    fill src={dc5} alt="dc5"/>
+                <Image
+                    className="absolute top-[-50%] right-[2%] w-[30%] transition-all"
+                    style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}
                     src={dc4} alt="dc4"/>
                 <Image
-                    className="absolute top-[11%] left-[-30%] w-[30%]"
+                    className="absolute top-[11%] left-[-30%] w-[30%] transition-all"
+                    style={{transform: shown ? 'rotate(0)' : 'rotate(-30deg)', opacity: shown ? '1' : '0' }}
                     src={dc8} alt="dc8"/>
                 <Image
-                    className="absolute top-[-50%] left-[15%] w-[30%]"
+                    className="absolute top-[-50%] left-[15%] w-[30%] transition-all"
+                    style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc9} alt="dc9"/>
                 <div
-                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className}`}>报名表
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className} transition-all`}
+                    style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0' }}
+                >报名表
                 </div>
             </div>
             <div className="absolute z-[32] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[60%]">
                 <Image
-                    className="absolute z-[7] top-[-12%] right-[0%] w-[15%]"
+                    className="absolute z-[7] top-[-12%] right-[0%] w-[15%] transition-all"
+                    style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc7} alt="dc7"/>
                 <Image
-                    className="absolute z-[10] top-[-10%] left-[-8%] w-[20%]"
+                    className="absolute z-[10] top-[-10%] left-[-8%] w-[20%] transition-all"
+                    style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc11} alt="dc11"/>
                 <Image
-                    className="absolute z-[11] top-[40%] left-[-20%] w-[20%]"
+                    className="absolute z-[11] top-[40%] left-[-20%] w-[20%] transition-all"
+                    style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc12} alt="dc12"/>
                 <Form
                     name="normal_login"
-                    className="login-form"
+                    className="transition-all"
+                    style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     initialValues={{remember: true}}
                     onFinish={(values: any) => {
                         console.log('Received values of form: ', values);
@@ -104,9 +117,13 @@ export default function Slide6() {
                 </Form>
             </div>
             <div className="absolute z-[7] bottom-[0%] left-[50%] translate-x-[-50%] w-[100vw] h-[10vh]">
-                <Image fill src={dc1} alt="dc1"/>
                 <Image
-                    className="absolute top-[-75%] right-0 w-[50%]"
+                    className="transition-all"
+                    style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}
+                    fill src={dc1} alt="dc1"/>
+                <Image
+                    className="absolute top-[-75%] right-0 w-[50%] transition-all"
+                    style={{transform: shown ? 'translateX(0em)' : 'translateX(2rem)', opacity: shown ? '1' : '0' }}
                     src={dc14} alt="dc14"/>
             </div>
         </div>
