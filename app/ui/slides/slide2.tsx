@@ -14,7 +14,7 @@ import dc12 from "@/public/slides/dc12.png";
 import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
-import {zcoolKuaiLe} from '@/app/ui/fonts';
+import {zcoolKuaiLe, notoSans} from '@/app/ui/fonts';
 import dc29 from "@/public/slides/dc29.png";
 import dc23 from "@/public/slides/dc23.png";
 import dc24 from "@/public/slides/dc24.png";
@@ -71,8 +71,8 @@ export default function Slide2({ shown } : { shown: boolean }) {
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(-2rem)', opacity: shown ? '1' : '0' }}
                     src={dc7} alt="dc7"/>
                 <div
-                    className="absolute w-full pt-10 px-6 text-[0.8rem] transition-all"
-                    style={{transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
+                    className={`absolute w-full pt-10 px-6 text-[0.8rem] transition-all ${notoSans.className}`}
+                    style={{fontWeight: 600, transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
                 >
                     <p>1、本赛会课程为秋色赛会公益类暑假班；</p>
                     <p>2、课程接受社会报名，限7~16周岁的学生报名，且每人仅限参与一项，优秀作品参与赛会评比；每门课程为30个名额，额满为止；报名者须按要求认真填写真实信息，选择参与课程(“佛山剪纸”、“佛山木雕”、“岭南书法”、“大良鱼灯”

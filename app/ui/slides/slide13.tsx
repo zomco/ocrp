@@ -11,12 +11,12 @@ import dc8 from "@/public/slides/dc8.png";
 import dc9 from "@/public/slides/dc9.png";
 import dc11 from "@/public/slides/dc11.png";
 import dc12 from "@/public/slides/dc12.png";
-import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
-import {zcoolKuaiLe, notoSans} from '@/app/ui/fonts';
+import {zcoolKuaiLe} from '@/app/ui/fonts';
 
-export default function Slide3({ shown } : { shown: boolean }) {
+
+export default function Slide9({ shown } : { shown: boolean }) {
     return (
         <div className="relative h-screen">
             <Image className="absolute z-[-1]" fill src={bg} alt="bg"/>
@@ -47,14 +47,10 @@ export default function Slide3({ shown } : { shown: boolean }) {
                 <div
                     className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className} transition-all`}
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0' }}
-                >报名须知
+                >图片展示
                 </div>
             </div>
             <div className="absolute z-[6] top-[20%] left-[50%] translate-x-[-50%] w-[80vw] h-[60vh]">
-                <Image
-                    className="transition-all"
-                    style={{transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
-                    fill src={dc6} alt="dc6"/>
                 <Image
                     className="absolute top-[40%] left-[-12%] w-[20%] transition-all"
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(2rem)', opacity: shown ? '1' : '0' }}
@@ -67,15 +63,21 @@ export default function Slide3({ shown } : { shown: boolean }) {
                     className="absolute top-[-6%] right-[10%] w-[15%] transition-all"
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(-2rem)', opacity: shown ? '1' : '0' }}
                     src={dc7} alt="dc7"/>
-                <div
-                    className={`absolute w-full pt-10 px-6 text-[0.8rem] transition-all ${notoSans.className}`}
-                    style={{fontWeight: 600, transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
-                >
-                    <p>4、课程贯彻老师、家长、学生共同完成制作的原则，每次课程都需要家长陪同，并参与制作，同时负责自己及孩子的人身安全；</p>
-                    <p>5、获奖作品需参与十月份的成果展览展示活动(活动闭幕式)及十一月份的秋色巡游，请各家长配合活动时间安排；</p>
-                    <p>6、活动咨询:0757-28338073(佛山市非物质文化遗产保护中心);</p>
-                    <p>7、本次活动最终解释权归主办方所有。</p>
-                </div>
+                <Image
+                    className="absolute top-[5%] left-[0%] w-full h-[40%] transition-all"
+                    style={{transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
+
+                    src={dc6} alt="dc6"/>
+                <Image
+                    className="absolute top-[45%] right-[0%] w-[60%] h-[35%] transition-all"
+                    style={{transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
+
+                    src={dc6} alt="dc6"/>
+                <Image
+                    className="absolute top-[80%] left-[0%] w-[60%] h-[35%] transition-all"
+                    style={{transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
+
+                    src={dc6} alt="dc6"/>
             </div>
             <div className="absolute z-[7] bottom-[0%] left-[50%] translate-x-[-50%] w-[100vw] h-[10vh]">
                 <Image
@@ -83,11 +85,7 @@ export default function Slide3({ shown } : { shown: boolean }) {
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}
                     fill src={dc1} alt="dc1"/>
                 <Image
-                    className="absolute top-[-100%] left-0 w-[35%] transition-all"
-                    style={{transform: shown ? 'translateX(0em)' : 'translateX(-2rem)', opacity: shown ? '1' : '0' }}
-                    src={dc13} alt="dc13"/>
-                <Image
-                    className="absolute top-[-75%] right-0 w-[50%]"
+                    className="absolute top-[-75%] right-0 w-[50%] transition-all"
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(2rem)', opacity: shown ? '1' : '0' }}
                     src={dc14} alt="dc14"/>
             </div>

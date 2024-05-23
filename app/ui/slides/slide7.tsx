@@ -15,7 +15,7 @@ import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import dc30 from "@/public/slides/dc30.png";
 import React from "react";
-import {zcoolKuaiLe} from '@/app/ui/fonts';
+import {notoSans, zcoolKuaiLe} from '@/app/ui/fonts';
 
 
 export default function Slide7({ shown } : { shown: boolean }) {
@@ -76,7 +76,10 @@ export default function Slide7({ shown } : { shown: boolean }) {
                     <Image
                         className="w-full"
                         src={dc30} alt="dc15"/>
-                    <div className="mt-4 text-center content-center">
+                    <div
+                        className={`mt-4 text-center content-center ${notoSans.className}`}
+                        style={{ fontWeight: 600 }}
+                    >
                         <p>授课地点：顺联公园里三楼中庭</p>
                         <p>（佛山市南海区季华东路27号）</p>
                         <p>活动咨询：廖老师 0757-28338073</p>

@@ -14,9 +14,9 @@ import dc12 from "@/public/slides/dc12.png";
 import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
-import {zcoolKuaiLe, notoSans} from '@/app/ui/fonts';
+import {notoSans, zcoolKuaiLe} from '@/app/ui/fonts';
 
-export default function Slide3({ shown } : { shown: boolean }) {
+export default function Slide8({ shown } : { shown: boolean }) {
     return (
         <div className="relative h-screen">
             <Image className="absolute z-[-1]" fill src={bg} alt="bg"/>
@@ -47,7 +47,7 @@ export default function Slide3({ shown } : { shown: boolean }) {
                 <div
                     className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className} transition-all`}
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0' }}
-                >报名须知
+                >课程介绍
                 </div>
             </div>
             <div className="absolute z-[6] top-[20%] left-[50%] translate-x-[-50%] w-[80vw] h-[60vh]">
@@ -71,10 +71,9 @@ export default function Slide3({ shown } : { shown: boolean }) {
                     className={`absolute w-full pt-10 px-6 text-[0.8rem] transition-all ${notoSans.className}`}
                     style={{fontWeight: 600, transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
                 >
-                    <p>4、课程贯彻老师、家长、学生共同完成制作的原则，每次课程都需要家长陪同，并参与制作，同时负责自己及孩子的人身安全；</p>
-                    <p>5、获奖作品需参与十月份的成果展览展示活动(活动闭幕式)及十一月份的秋色巡游，请各家长配合活动时间安排；</p>
-                    <p>6、活动咨询:0757-28338073(佛山市非物质文化遗产保护中心);</p>
-                    <p>7、本次活动最终解释权归主办方所有。</p>
+                    <h1 className="mb-3 text-center" style={{fontSize: '1rem', fontWeight: 800}}>狮头（广东狮头）简介</h1>
+                    <p className="mb-1">剪纸（广东剪纸）是佛山市第一批国家级非物质文化遗产项目，最早在汉代传入岭南并在佛山市开花结果，至明清时期最为鼎盛。</p>
+                    <p className="mb-1">佛山剪纸分成纯色剪纸，衬料剪纸，写料剪纸，洞凿剪纸四大类，再根据用料和工具的不同，又细分为九个不同的种类，手法采用剪和刻两种形式。传统佛山剪纸的题材包括社会经济、文化意识、民风民俗、社情民意决定其内容和形式，如喜庆吉祥、驱邪纳福、多子长寿是永恒的主体，极受欢迎。</p>
                 </div>
             </div>
             <div className="absolute z-[7] bottom-[0%] left-[50%] translate-x-[-50%] w-[100vw] h-[10vh]">
@@ -87,7 +86,7 @@ export default function Slide3({ shown } : { shown: boolean }) {
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(-2rem)', opacity: shown ? '1' : '0' }}
                     src={dc13} alt="dc13"/>
                 <Image
-                    className="absolute top-[-75%] right-0 w-[50%]"
+                    className="absolute top-[-75%] right-0 w-[50%] transition-all"
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(2rem)', opacity: shown ? '1' : '0' }}
                     src={dc14} alt="dc14"/>
             </div>

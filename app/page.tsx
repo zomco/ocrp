@@ -10,6 +10,12 @@ import Slide6 from './ui/slides/slide6';
 import Slide7 from './ui/slides/slide7';
 import Slide8 from './ui/slides/slide8';
 import Slide9 from './ui/slides/slide9';
+import Slide10 from './ui/slides/slide10';
+import Slide11 from './ui/slides/slide11';
+import Slide12 from './ui/slides/slide12';
+import Slide13 from './ui/slides/slide13';
+import Slide14 from './ui/slides/slide14';
+import Slide15 from './ui/slides/slide15';
 import { Carousel } from 'antd';
 
 
@@ -42,6 +48,12 @@ export default function Page() {
                     <Slide7 shown={ current === 6 }/>
                     <Slide8 shown={ current === 7 }/>
                     <Slide9 shown={ current === 8 }/>
+                    <Slide10 shown={ current === 9 }/>
+                    <Slide11 shown={ current === 10 }/>
+                    <Slide12 shown={ current === 11 }/>
+                    <Slide13 shown={ current === 12 }/>
+                    <Slide14 shown={ current === 13 }/>
+                    <Slide15 shown={ current === 14 }/>
                 </Carousel>
             </div>
         </main>

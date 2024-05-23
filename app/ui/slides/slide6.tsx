@@ -103,10 +103,10 @@ export default function Slide6({ shown } : { shown: boolean }) {
                         rules={[{required: true, message: '请选择课程'}]}
                     >
                         <Select size="large" placeholder="请选择课程">
-                            <Option value="1">课程1</Option>
-                            <Option value="2">课程2</Option>
-                            <Option value="3">课程3</Option>
-                            <Option value="4">课程4</Option>
+                            <Option value="1">佛山剪纸</Option>
+                            <Option value="2">佛山狮头</Option>
+                            <Option value="3">佛山秋色</Option>
+                            <Option value="4">金波锻造技艺</Option>
                         </Select>
                     </Form.Item>
                     <Form.Item>

@@ -20,7 +20,6 @@ import clsx from 'clsx';
 
 
 export default function Slide1({ shown } : { shown: boolean }) {
-    console.log('hello', shown)
     return (
         <div className="relative h-screen">
             <Image className="absolute z-[-1]" fill src={bg} alt="bg"/>

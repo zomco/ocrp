@@ -14,7 +14,7 @@ import dc12 from "@/public/slides/dc12.png";
 import dc13 from "@/public/slides/dc13.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
-import {zcoolKuaiLe} from '@/app/ui/fonts';
+import {notoSans, zcoolKuaiLe} from '@/app/ui/fonts';
 
 export default function Slide4({ shown } : { shown: boolean }) {
     return (
@@ -68,25 +68,25 @@ export default function Slide4({ shown } : { shown: boolean }) {
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(-2rem)', opacity: shown ? '1' : '0' }}
                     src={dc7} alt="dc7"/>
                 <div
-                    className="absolute w-full pt-10 px-6 text-[0.8rem] transition-all"
-                    style={{transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
+                    className={`absolute w-full pt-10 px-6 text-[0.8rem] transition-all ${notoSans.className}`}
+                    style={{fontWeight: 600, transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
                 >
                     <div className="text-center content-center">
                         <p>佛山剪纸</p>
-                        <p>授课老师：XXX</p>
+                        <p>授课老师：陈嘉彦</p>
                         <p>授课地点：顺联公园里三楼中庭</p>
                         <p>授课时间：</p>
                         <p>7 月 22 日、29 日</p>
-                        <p>8 月 5 日、29 日</p>
+                        <p>8 月 5 日、12 日</p>
                         <p>周六上午 09:00 - 11:30</p>
                     </div>
                     <div className="mt-4 text-center content-center">
                         <p>佛山狮头</p>
-                        <p>授课老师：XXX</p>
+                        <p>授课老师：黎婉珍</p>
                         <p>授课地点：顺联公园里三楼中庭</p>
                         <p>授课时间：</p>
                         <p>7 月 22 日、29 日</p>
-                        <p>8 月 5 日、29 日</p>
+                        <p>8 月 5 日、12 日</p>
                         <p>周六下午 14:30 - 17:00</p>
                     </div>
                 </div>

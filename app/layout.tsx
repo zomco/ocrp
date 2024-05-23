@@ -1,6 +1,6 @@
 import '@/app/ui/global.css';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { notoSans } from '@/app/ui/fonts';
+import { inter } from '@/app/ui/fonts';
 
 export default function RootLayout({
   children,
@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
       <html lang="en">
-        <body className={`${notoSans.className} antialiasing`} suppressHydrationWarning={true}>
+        <body className={`${inter.className} antialiasing`} suppressHydrationWarning={true}>
           <AntdRegistry>{children}</AntdRegistry>
         </body>
       </html>
