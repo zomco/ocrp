@@ -18,6 +18,7 @@ import {zcoolKuaiLe, notoSans} from '@/app/ui/fonts';
 import dc29 from "@/public/slides/dc29.png";
 import dc23 from "@/public/slides/dc23.png";
 import dc24 from "@/public/slides/dc24.png";
+import dc31 from "@/public/slides/dc31.png";
 
 export default function Slide2({ shown } : { shown: boolean }) {
     return (
@@ -30,6 +31,7 @@ export default function Slide2({ shown } : { shown: boolean }) {
                 className="absolute z-[3] transition-all" fill
                 style={{transform: shown ? 'translateY(0em)' : 'translateY(8rem)', opacity: shown ? '1' : '0' }}
                 src={dc3} alt="dc3"/>
+            <Image className="absolute z-[10] top-3 right-6 animate-spin bg-black rounded-[50%] w-[2em] h-[2em] object-contain p-1" src={dc31} alt="dc31"/>
             <div className="absolute z-[5] top-[10%] left-[50%] translate-x-[-50%] w-[50vw] h-[8vh]">
                 <Image
                     className="transition-all"

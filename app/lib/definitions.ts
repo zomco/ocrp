@@ -3,16 +3,12 @@
 // For simplicity of teaching, we're manually defining these types.
 // However, these types are generated automatically if you're using an ORM such as Prisma.
 
-export type Course = {
-  id: string;
-  name: string;
-};
-
 export type Registration = {
   id: string;
-  course_id: string;
+  course: string;
   parent: string;
   phone: string;
   student: string;
   created_at: string;
+  updated_at: string;
 };
