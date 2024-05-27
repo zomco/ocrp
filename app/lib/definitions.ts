@@ -5,10 +5,16 @@
 
 export type Registration = {
   id: string;
-  course: string;
+  course: '佛山剪纸' | '佛山狮头' | '佛山秋色' | '金铂锻造技艺';
   parent: string;
   phone: string;
   student: string;
   created_at: string;
   updated_at: string;
 };
+
+export interface ResponseMessage {
+  success: boolean;
+  message: string;
+  data: any;
+}

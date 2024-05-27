@@ -1,0 +1,88 @@
+import { headers } from 'next/headers'
+import { type NextRequest } from 'next/server'
+import {sql} from '@vercel/postgres';
+import {Registration, ResponseMessage} from '../../lib/definitions';
+import { z, ZodError } from 'zod';
+import { unstable_noStore as noStore } from 'next/cache';
+
+const RegistrationSchema = z.object({
+    id: z.string(),
+    course: z.enum(['佛山剪纸', '佛山狮头', '佛山秋色', '金铂锻造技艺']),
+    parent: z.string(),
+    phone: z.string(),
+    student: z.string(),
+    created_at: z.date(),
+    updated_at: z.date(),
+});
+
+const CreateRegistration = RegistrationSchema.omit({ id: true, created_at: true, updated_at: true, });
+
+export async function GET(request: NextRequest) {
+    noStore();
+    const searchParams = request.nextUrl.searchParams;
+    const course = searchParams.get('course');
+    try {
+        const data = await sql<Registration>`
+          SELECT *
+          FROM registration
+          WHERE registration.course = ${course}
+          ORDER BY registration.created_at DESC`;
+        return Response.json({
+            success: true,
+            message: 'ok',
+            data: data.rows
+        });
+    } catch (error) {
+        console.error('database error:', error);
+        const e = error as Error;
+        return Response.json({
+            success: false,
+            message: `${e.message}`,
+            data: [],
+        });
+    }
+}
+
+export async function POST(request: Request) {
+    const headersList = headers();
+    const referer = headersList.get('referer');
+    const body = await request.json();
+    if (!body) {
+        return Response.json({
+            success: false,
+            message: `参数缺失`,
+            data: {},
+        })
+    }
+    try {
+        const { parent, phone, student, course } = CreateRegistration.parse({
+            course: body.course,
+            parent: body.parent,
+            phone: body.phone,
+            student: body.student,
+        });
+        await sql`
+            INSERT INTO registration (course, parent, phone, student)
+            VALUES (${course}, ${parent}, ${phone}, ${student})`;
+        return Response.json({
+            success: true,
+            message: 'ok',
+            data: {}
+        });
+    } catch (error) {
+        console.error('save registration error:', error);
+        if (error instanceof ZodError) {
+            return Response.json({
+                success: false,
+                message: '参数无效',
+                data: {},
+            });
+        }
+        const e = error as Error;
+        return Response.json({
+            success: false,
+            message: `提交失败`,
+            data: {},
+        });
+    }
+}

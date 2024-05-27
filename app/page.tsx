@@ -20,22 +20,21 @@ import { Carousel } from 'antd';
 
 
 export default function Page() {
-    const [current, setCurrent] = useState(1);
+    const [current, setCurrent] = useState(0);
     return (
         <main className="flex justify-center">
-            <div className="w-screen h-screen portrait:hidden flex justify-center items-center">
+            <div className="w-screen h-dvh portrait:hidden flex justify-center items-center">
                 请在竖屏浏览
             </div>
             <div className="landscape:hidden">
                 <Carousel
-                    className="w-screen h-screen min-[430px]:w-[430px] min-[932px]:h-[932px]"
+                    className="w-screen h-dvh min-[430px]:w-[430px] min-[932px]:h-[932px]"
                     arrows={false}
                     autoplay={false}
                     dotPosition="left"
                     infinite={false}
                     fade
                     afterChange={(curr) => {
-                        console.log(current, curr);
                         setCurrent(curr);
                     }}
                 >
