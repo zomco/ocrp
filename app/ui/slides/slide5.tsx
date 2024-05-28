@@ -47,7 +47,7 @@ export default function Slide5({ shown } : { shown: boolean }) {
                     style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc9} alt="dc9"/>
                 <div
-                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className} transition-all`}
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center flex justify-center items-center ${zcoolKuaiLe.className} transition-all`}
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0' }}
                 >上课时间
                 </div>
@@ -73,7 +73,7 @@ export default function Slide5({ shown } : { shown: boolean }) {
                     className={`absolute w-full pt-10 px-6 text-[0.8rem] transition-all ${notoSans.className}`}
                     style={{fontWeight: 600, transform: shown ? 'translateY(0em)' : 'translateY(6rem)', opacity: shown ? '1' : '0' }}
                 >
-                    <div className="text-center content-center">
+                    <div className="text-center content-center flex flex-col justify-center items-center">
                         <p>佛山秋色</p>
                         <p>授课老师：何信</p>
                         <p>授课地点：顺联公园里三楼中庭</p>
@@ -82,7 +82,7 @@ export default function Slide5({ shown } : { shown: boolean }) {
                         <p>8 月 5 日、12 日</p>
                         <p>周六上午 09:00 - 11:30</p>
                     </div>
-                    <div className="mt-4 text-center content-center">
+                    <div className="mt-4 text-center content-center flex flex-col justify-center items-center">
                         <p>金箔锻造技艺</p>
                         <p>授课老师：吴炜金</p>
                         <p>授课地点：顺联公园里三楼中庭</p>

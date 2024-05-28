@@ -50,7 +50,7 @@ export default function Slide2({ shown } : { shown: boolean }) {
                     style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc9} alt="dc9"/>
                 <div
-                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className} transition-all`}
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center flex justify-center items-center ${zcoolKuaiLe.className} transition-all`}
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0' }}
                 >报名须知
                 </div>

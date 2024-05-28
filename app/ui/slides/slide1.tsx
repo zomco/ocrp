@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import bg from "@/public/slides/bg.png";
 import dc29 from "@/public/slides/dc29.png";
@@ -75,7 +77,7 @@ export default function Slide1({ shown } : { shown: boolean }) {
                             style={{transform: shown ? 'translateX(0em)' : 'translateX(2rem)', opacity: shown ? '1' : '0' }}
                             src={dc9} alt="dc9"/>
                         <p
-                            className="absolute w-full h-full text-center content-center text-[1.2rem] text-white text-nowrap transition-all"
+                            className="absolute w-full h-full text-center content-center flex justify-center items-center text-[1.2rem] text-white text-nowrap transition-all"
                             style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                         >秋色赛会公益类暑假班</p>
                     </div>
@@ -86,7 +88,7 @@ export default function Slide1({ shown } : { shown: boolean }) {
                             style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}
                             src={dc12} alt="dc12"/>
                         <p
-                            className={`absolute w-full h-full text-center content-center text-[5rem] text-[#26a69a] text-nowrap ${mashanzheng.className} transition-all`}
+                            className={`absolute w-full h-full text-center content-center flex justify-center items-center text-[5rem] text-[#26a69a] text-nowrap ${mashanzheng.className} transition-all`}
                             style={{ opacity: shown ? '1' : '0' }}
                         >邀请函</p>
                     </div>
@@ -97,7 +99,7 @@ export default function Slide1({ shown } : { shown: boolean }) {
                             style={{ opacity: shown ? '1' : '0' }}
                             src={dc22} alt="dc22"/>
                         <p
-                            className={`absolute w-full h-full text-center content-center text-[1.5rem] text-[#eb4034] text-nowrap ${zcoolKuaiLe.className} transition-all`}
+                            className={`absolute w-full h-full text-center content-center flex justify-center items-center text-[1.5rem] text-[#eb4034] text-nowrap ${zcoolKuaiLe.className} transition-all`}
                             style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}
                         >和孩子一起度过一个快乐的暑假</p>
                     </div>
@@ -117,7 +119,7 @@ export default function Slide1({ shown } : { shown: boolean }) {
                     className={clsx("absolute bottom-[10%] right-[0] w-[35%] transition-all")}
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(2rem)', opacity: shown ? '1' : '0' }}
                     src={dc24} alt="dc24"/>
-                <p className="absolute w-full h-full text-center content-center text-[1rem] text-white text-nowrap translate-y-5">佛山市非物质文化遗产保护中心</p>
+                <p className="absolute w-full h-full text-center content-center flex justify-center items-center text-[1rem] text-white text-nowrap translate-y-5">佛山市非物质文化遗产保护中心</p>
             </div>
         </div>
     );

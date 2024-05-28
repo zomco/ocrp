@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import Slide1 from './ui/slides/slide1';
 import Slide2 from './ui/slides/slide2';
 import Slide3 from './ui/slides/slide3';
@@ -18,10 +18,29 @@ import Slide14 from './ui/slides/slide14';
 import Slide15 from './ui/slides/slide15';
 import { Carousel, Result } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
+import {CustomArrowProps} from "@ant-design/react-slick";
+
+const SlickArrowPrev = ({ currentSlide, slideCount, ...props }: CustomArrowProps) => (
+    <div {...props} style={{width: '100px', height: '100px'}}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+             className="size-6 text-white animate-pulse">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"/>
+        </svg>
+    </div>
+);
+const SlickArrowNext = ({currentSlide, slideCount, ...props}: CustomArrowProps) => (
+    <div {...props} style={{width: '100px', height: '100px'}}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+             className="size-6 text-white animate-pulse">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+        </svg>
+    </div>
+);
 
 
 export default function Page() {
     const [current, setCurrent] = useState(0);
+    const carouselInput = useRef(null);
     return (
         <main className="flex justify-center">
             <div className="w-screen h-dvh portrait:hidden flex justify-center items-center">
@@ -32,8 +51,11 @@ export default function Page() {
             </div>
             <div className="landscape:hidden">
                 <Carousel
+                    ref={carouselInput}
                     className="w-screen h-dvh min-[430px]:w-[430px] min-[932px]:h-[932px]"
-                    arrows={false}
+                    arrows
+                    prevArrow={<SlickArrowPrev className="w-24 h-24" />}
+                    nextArrow={<SlickArrowNext />}
                     autoplay={false}
                     dotPosition="left"
                     infinite={false}
@@ -41,15 +63,6 @@ export default function Page() {
                     afterChange={(curr) => {
                         setCurrent(curr);
                     }}
-                    swipeToSlide
-                    draggable
-                    swipeEvent={(e) => {
-                        console.log(e);
-                    }}
-                    onSwipe={(e) => {
-                        console.log(e);
-                    }}
-                    swipe
                 >
                     <Slide1 shown={ current === 0 }/>
                     <Slide2 shown={ current === 1 }/>

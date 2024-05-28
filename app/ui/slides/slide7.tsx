@@ -49,7 +49,7 @@ export default function Slide7({ shown } : { shown: boolean }) {
                     style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc9} alt="dc9"/>
                 <div
-                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center ${zcoolKuaiLe.className} transition-all`}
+                    className={`absolute w-full h-full px-6 text-[1.5rem] text-white text-center content-center flex justify-center items-center ${zcoolKuaiLe.className} transition-all`}
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0' }}
                 >授课地点
                 </div>
@@ -79,7 +79,7 @@ export default function Slide7({ shown } : { shown: boolean }) {
                         className="w-full"
                         src={dc30} alt="dc15"/>
                     <div
-                        className={`mt-4 text-center content-center ${notoSans.className}`}
+                        className={`mt-4 text-center content-center flex flex-col justify-center items-center ${notoSans.className}`}
                         style={{ fontWeight: 600 }}
                     >
                         <p>授课地点：顺联公园里三楼中庭</p>
