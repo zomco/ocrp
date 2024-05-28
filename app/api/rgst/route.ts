@@ -4,6 +4,8 @@ import {sql} from '@vercel/postgres';
 import {Registration, ResponseMessage} from '../../lib/definitions';
 import { z, ZodError } from 'zod';
 import { unstable_noStore as noStore } from 'next/cache';
+import {NeonDbError} from "@neondatabase/serverless";
+import jwt from "jsonwebtoken";
 
 const RegistrationSchema = z.object({
     id: z.string(),
@@ -14,30 +16,74 @@ const RegistrationSchema = z.object({
     created_at: z.date(),
     updated_at: z.date(),
 });
-
 const CreateRegistration = RegistrationSchema.omit({ id: true, created_at: true, updated_at: true, });
 
 export async function GET(request: NextRequest) {
+    const headersList = headers();
+    const authentication = headersList.get('authentication');
+    if (!authentication) {
+        return Response.json({
+            success: false,
+            message: '无权限操作',
+            data: [],
+        })
+    }
+    const token = authentication.split(" ")[1];
+    if (!token) {
+        return Response.json({
+            success: false,
+            message: '无权限操作',
+            data: [],
+        })
+    }
+    try {
+        const { username, password } = jwt.verify(token, process.env.JWT_SECRET);
+        if (!(username === process.env.ADMIN_NAME && password === process.env.ADMIN_PASS)) {
+            return Response.json({
+                success: false,
+                message: '无权限操作',
+                data: []
+            })
+        }
+    } catch (error) {
+        return Response.json({
+            success: false,
+            message: '无权限操作',
+            data: []
+        })
+    }
     noStore();
     const searchParams = request.nextUrl.searchParams;
     const course = searchParams.get('course');
     try {
-        const data = await sql<Registration>`
-          SELECT *
-          FROM registration
-          WHERE registration.course = ${course}
-          ORDER BY registration.created_at DESC`;
-        return Response.json({
-            success: true,
-            message: 'ok',
-            data: data.rows
-        });
+        if (!!course) {
+            const data = await sql<Registration>`
+              SELECT *
+              FROM registration
+              WHERE registration.course = ${course}
+              ORDER BY registration.created_at DESC`;
+            return Response.json({
+                success: true,
+                message: '获取成功',
+                data: data.rows
+            });
+        } else {
+            const data = await sql<Registration>`
+              SELECT *
+              FROM registration`;
+            return Response.json({
+                success: true,
+                message: '获取成功',
+                data: data.rows
+            });
+        }
+
     } catch (error) {
         console.error('database error:', error);
         const e = error as Error;
         return Response.json({
             success: false,
-            message: `${e.message}`,
+            message: '获取失败',
             data: [],
         });
     }
@@ -66,7 +112,7 @@ export async function POST(request: Request) {
             VALUES (${course}, ${parent}, ${phone}, ${student})`;
         return Response.json({
             success: true,
-            message: 'ok',
+            message: '提交成功',
             data: {}
         });
     } catch (error) {
@@ -75,6 +121,13 @@ export async function POST(request: Request) {
             return Response.json({
                 success: false,
                 message: '参数无效',
+                data: {},
+            });
+        }
+        if (error instanceof NeonDbError && error.code === '23505') {
+            return Response.json({
+                success: true,
+                message: '报名信息已存在',
                 data: {},
             });
         }

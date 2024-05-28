@@ -1,16 +1,17 @@
 'use client';
 
-import React, {useEffect, useState, Suspense, useCallback} from 'react';
-import { Layout, Menu, theme, Table } from 'antd';
-import type { TableColumnsType } from 'antd';
-import {Registration} from "@/app/lib/definitions";
+import React, {useEffect, useState, useCallback} from 'react';
+import {Layout, Menu, theme, Table, Button, message} from 'antd';
+import type { TableColumnsType, MenuProps } from 'antd';
+import {Registration, ResponseMessage} from "@/app/lib/definitions";
+import {FormOutlined,ExportOutlined,LogoutOutlined} from "@ant-design/icons";
+import * as XLSX from "xlsx";
 
 interface MenuItem {
     key: string,
     label: string,
 }
-
-const items: MenuItem[] = [{
+const courseItems: MenuItem[] = [{
     key: '佛山剪纸',
     label: '佛山剪纸'
 }, {
@@ -23,20 +24,39 @@ const items: MenuItem[] = [{
     key: '金箔锻造技艺',
     label: '金箔锻造技艺'
 }];
+const items: MenuProps['items'] = [{
+    key: '报名表',
+    icon: <FormOutlined />,
+    label: '报名表',
+    children: courseItems
+}, {
+    key: '导出数据',
+    icon: <ExportOutlined />,
+    label: '导出数据',
+}, {
+    key: '退出登录',
+    icon: <LogoutOutlined />,
+    label: '退出登录'
+}]
 
 const { Header, Content, Footer, Sider } = Layout;
 const padLeft2 = (nr: any, len = 2, chr = `0`) => `${nr}`.padStart(2, chr);
 const padLeft3 = (nr: any, len = 3, chr = `0`) => `${nr}`.padStart(3, chr);
+const formatDatetime = (datetime: string) => {
+    const dt = new Date(datetime);
+    return `${dt.getFullYear()}-${padLeft2(dt.getMonth()+1)}-${padLeft2(dt.getDate())} ${padLeft2(dt.getHours())}:${padLeft2(dt.getMinutes())}:${padLeft2(dt.getSeconds())}.${padLeft3(dt.getMilliseconds())}`;
+}
+const formatFilename = () => {
+    const dt = new Date();
+    return `报名表_${dt.getFullYear()}${padLeft2(dt.getMonth()+1)}${padLeft2(dt.getDate())}.xlsx`;
+}
 
 const columns: TableColumnsType<Registration> = [
     {
         title: '报名时间',
         dataIndex: 'created_at',
         key: 'created_at',
-        render: (text, record) => {
-            const dt = new Date(text);
-            return `${dt.getFullYear()}-${padLeft2(dt.getMonth()+1)}-${padLeft2(dt.getDate())} ${padLeft2(dt.getHours())}:${padLeft2(dt.getMinutes())}:${padLeft2(dt.getSeconds())}.${padLeft3(dt.getMilliseconds())}`;
-        }
+        render: (text, record) => formatDatetime(text)
     },
     {
         title: '家长电话',
@@ -65,12 +85,25 @@ export default function Page() {
     const [current, setCurrent] = useState(0);
     const [data, setData] = useState<Registration[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isExporting, setIsExporting] = useState(false);
+    const [messageApi, contextHolder] = message.useMessage();
     const fetchRegistrations = useCallback(async () => {
         setIsLoading(true);
         try {
-            const res = await fetch(`/api/rgst?course=${items[current].key}`);
-            const response = await res.json();
-            setData(response.data);
+            const requestHeaders: HeadersInit = new Headers();
+            requestHeaders.set('Authentication', localStorage.getItem('authentication')!);
+            const res = await fetch(`/api/rgst?course=${courseItems[current].key}`, { headers: requestHeaders });
+            const message: ResponseMessage = await res.json();
+            if (!message.success) {
+                messageApi.open({ type: "error", content: message.message });
+                if (message.message === '无权限操作') {
+                    localStorage.removeItem('authentication');
+                    window.location.href = '/login';
+                }
+            } else {
+                setData(message.data);
+            }
         } catch (error) {
             console.error(error);
         } finally {
@@ -80,18 +113,54 @@ export default function Page() {
     useEffect(() => {
         fetchRegistrations().then(r => console.log('fetch registrations'));
     }, [fetchRegistrations])
-
+    const exportRegistrations = useCallback(async () => {
+        setIsExporting(true);
+        try {
+            const requestHeaders: HeadersInit = new Headers();
+            requestHeaders.set('Authentication', localStorage.getItem('authentication')!);
+            const res = await fetch(`/api/rgst`, { headers: requestHeaders });
+            const message: ResponseMessage = await res.json();
+            if (!message.success) {
+                messageApi.open({ type: "error", content: message.message });
+                if (message.message === '无权限操作') {
+                    localStorage.removeItem('authentication');
+                    window.location.href = '/login';
+                }
+            } else {
+                const dataToExport = message.data.map((item: Registration) => ({
+                    '课程': item.course,
+                    '报名时间': formatDatetime(item.created_at),
+                    '手机号码': item.phone,
+                    '学生姓名': item.student,
+                    '家长姓名': item.parent,
+                }));
+                const workbook = XLSX.utils.book_new();
+                const worksheet = XLSX.utils?.json_to_sheet(dataToExport);
+                XLSX.utils.book_append_sheet(workbook, worksheet, '报名表');
+                // Save the workbook as an Excel file
+                XLSX.writeFile(workbook, formatFilename());
+                setIsCollapsed(true);
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsExporting(false);
+        }
+    }, []);
 
     return (
         <Layout className="h-screen">
+            {contextHolder}
             <Sider
+                collapsed={isCollapsed}
                 breakpoint="lg"
                 collapsedWidth="0"
+                defaultCollapsed
                 onBreakpoint={(broken) => {
                     console.log(broken);
                 }}
                 onCollapse={(collapsed, type) => {
-                    console.log(collapsed, type);
+                    setIsCollapsed(collapsed)
                 }}
             >
                 <Menu
@@ -99,9 +168,20 @@ export default function Page() {
                     mode="inline"
                     defaultSelectedKeys={['佛山剪纸']}
                     onClick={(e) => {
-                        const index = items.findIndex((item) => item.key === e.key);
+                        const index = courseItems.findIndex((item) => item.key === e.key);
+                        // 点击报名表
                         if (index > -1) {
                             setCurrent(index);
+                            setIsCollapsed(true);
+                        }
+                        // 点击导出数据
+                        if (e.key === '导出数据') {
+                            exportRegistrations();
+                        }
+                        // 点击退出登录
+                        if (e.key === '退出登录') {
+                            localStorage.removeItem('authentication');
+                            window.location.href = '/login';
                         }
                     }}
                     items={items}
@@ -109,7 +189,7 @@ export default function Page() {
             </Sider>
             <Layout>
                 <Header style={{padding: 0, background: colorBgContainer}}>
-                    <div className="p-4 text-3xl">{`${items[current].label} 课程报名表`}</div>
+                    <div className="p-4 text-3xl">{`${courseItems[current].label} 报名表`}</div>
                 </Header>
                 <Content style={{margin: '24px 16px 0'}}>
                 {isLoading ? (

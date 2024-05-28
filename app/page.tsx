@@ -16,7 +16,8 @@ import Slide12 from './ui/slides/slide12';
 import Slide13 from './ui/slides/slide13';
 import Slide14 from './ui/slides/slide14';
 import Slide15 from './ui/slides/slide15';
-import { Carousel } from 'antd';
+import { Carousel, Result } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 
 
 export default function Page() {
@@ -24,7 +25,10 @@ export default function Page() {
     return (
         <main className="flex justify-center">
             <div className="w-screen h-dvh portrait:hidden flex justify-center items-center">
-                请在竖屏浏览
+                <Result
+                    icon={<SmileOutlined />}
+                    title="请在竖屏浏览"
+                />
             </div>
             <div className="landscape:hidden">
                 <Carousel
@@ -37,6 +41,15 @@ export default function Page() {
                     afterChange={(curr) => {
                         setCurrent(curr);
                     }}
+                    swipeToSlide
+                    draggable
+                    swipeEvent={(e) => {
+                        console.log(e);
+                    }}
+                    onSwipe={(e) => {
+                        console.log(e);
+                    }}
+                    swipe
                 >
                     <Slide1 shown={ current === 0 }/>
                     <Slide2 shown={ current === 1 }/>

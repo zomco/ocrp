@@ -14,7 +14,7 @@ import dc11 from "@/public/slides/dc11.png";
 import dc12 from "@/public/slides/dc12.png";
 import dc14 from "@/public/slides/dc14.png";
 import React from "react";
-import {Button, Form, Input, Select, message} from 'antd';
+import {Button, Form, Input, Select, message, Result} from 'antd';
 import {zcoolKuaiLe} from '@/app/ui/fonts';
 import dc31 from "@/public/slides/dc31.png";
 import {useState} from "react";
@@ -25,6 +25,7 @@ const {Option} = Select;
 export default function Slide6({ shown } : { shown: boolean }) {
     const [isLoading, setIsLoading] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
+    const [isSubmit, setIsSubmit] = useState(false);
     return (
         <div className="relative h-screen">
             {contextHolder}
@@ -73,81 +74,91 @@ export default function Slide6({ shown } : { shown: boolean }) {
                     className="absolute z-[11] top-[40%] left-[-20%] w-[20%] transition-all"
                     style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc12} alt="dc12"/>
-                <Form
-                    name="normal_login"
-                    className="transition-all"
-                    style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
-                    initialValues={{remember: true}}
-                    onFinish={async (values: any) => {
-                        setIsLoading(true);
-                        try {
-                            const res = await fetch('/api/rgst', {
-                                method: "POST",
-                                headers: {
-                                    "Accept": "application/json",
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify(values)
-                            });
-                            const message: ResponseMessage = await res.json();
-                            if (!message.success) {
-                                messageApi.open({ type: "error", content: message.message });
+                {isSubmit ? (
+                    <Result
+                        status="success"
+                        title="报名成功"
+                        subTitle="请等候工作人员联系"
+                    />
+                ):(
+                    <Form
+                        name="normal_login"
+                        className="transition-all"
+                        style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
+                        initialValues={{remember: true}}
+                        onFinish={async (values: any) => {
+                            setIsLoading(true);
+                            try {
+                                const res = await fetch('/api/rgst', {
+                                    method: "POST",
+                                    headers: {
+                                        "Accept": "application/json",
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify(values)
+                                });
+                                const message: ResponseMessage = await res.json();
+                                if (!message.success) {
+                                    messageApi.open({ type: "error", content: message.message });
+                                } else {
+                                    setIsSubmit(true);
+                                }
+                            } catch (error) {
+                                messageApi.open({ type: "error", content: '网络问题，请重试' });
+                                console.error(error);
+                            } finally {
+                                setIsLoading(false);
                             }
-                        } catch (error) {
-                            messageApi.open({ type: "error", content: '网络问题，请重试' });
-                            console.error(error);
-                        } finally {
-                            setIsLoading(false);
-                        }
-                    }}
-                    onFinishFailed={(error: any) => {
-                        console.log('Failed: ', error.message);
-                    }}
-                >
-                    <Form.Item
-                        name="student"
-                        rules={[{required: true, pattern: /^(?:[\u4e00-\u9fa5·]{2,6})$/, message: '请输入学生姓名'}]}
+                        }}
+                        onFinishFailed={(error: any) => {
+                            console.log('Failed: ', error.message);
+                        }}
                     >
-                        <Input size="large" placeholder="学生姓名"/>
-                    </Form.Item>
-                    <Form.Item
-                        name="parent"
-                        rules={[{required: true, pattern: /^(?:[\u4e00-\u9fa5·]{2,6})$/, message: '请输入家长姓名'}]}
-                    >
-                        <Input size="large" placeholder="家长姓名"/>
-                    </Form.Item>
-                    <Form.Item
-                        name="phone"
-                        rules={[{
-                            required: true,
-                            pattern: /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-79])|(?:5[0-35-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[01256789]))\d{8}$/
-                            ,
-                            message: '请输入家长手机'
-                        }]}
-                    >
-                        <Input size="large" placeholder="家长手机"/>
-                    </Form.Item>
-                    <Form.Item
-                        name="course"
-                        rules={[{required: true, message: '请选择课程'}]}
-                    >
-                        <Select size="large" placeholder="请选择课程">
-                            <Option value="佛山剪纸">佛山剪纸</Option>
-                            <Option value="佛山狮头">佛山狮头</Option>
-                            <Option value="佛山秋色">佛山秋色</Option>
-                            <Option value="金铂锻造技艺">金铂锻造技艺</Option>
-                        </Select>
-                    </Form.Item>
-                    <Form.Item>
-                        <Button
-                            size="large"
-                            type="primary"
-                            htmlType="submit"
-                            className="w-full"
-                            loading={isLoading}
-                        >提交</Button>
-                    </Form.Item>
-                </Form>
+                        <Form.Item
+                            name="student"
+                            rules={[{required: true, pattern: /^(?:[\u4e00-\u9fa5·]{2,6})$/, message: '请输入学生姓名'}]}
+                        >
+                            <Input size="large" placeholder="学生姓名"/>
+                        </Form.Item>
+                        <Form.Item
+                            name="parent"
+                            rules={[{required: true, pattern: /^(?:[\u4e00-\u9fa5·]{2,6})$/, message: '请输入家长姓名'}]}
+                        >
+                            <Input size="large" placeholder="家长姓名"/>
+                        </Form.Item>
+                        <Form.Item
+                            name="phone"
+                            rules={[{
+                                required: true,
+                                pattern: /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-79])|(?:5[0-35-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[01256789]))\d{8}$/
+                                ,
+                                message: '请输入家长手机'
+                            }]}
+                        >
+                            <Input size="large" placeholder="家长手机"/>
+                        </Form.Item>
+                        <Form.Item
+                            name="course"
+                            rules={[{required: true, message: '请选择课程'}]}
+                        >
+                            <Select size="large" placeholder="请选择课程">
+                                <Option value="佛山剪纸">佛山剪纸</Option>
+                                <Option value="佛山狮头">佛山狮头</Option>
+                                <Option value="佛山秋色">佛山秋色</Option>
+                                <Option value="金铂锻造技艺">金铂锻造技艺</Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item>
+                            <Button
+                                size="large"
+                                type="primary"
+                                htmlType="submit"
+                                className="w-full"
+                                loading={isLoading}
+                            >提交</Button>
+                        </Form.Item>
+                    </Form>
+                )}
             </div>
             <div className="absolute z-[7] bottom-[0%] left-[50%] translate-x-[-50%] w-[100vw] h-[10vh]">
                 <Image
