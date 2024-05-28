@@ -37,7 +37,8 @@ export async function GET(request: NextRequest) {
         })
     }
     try {
-        const { username, password } = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET!);
+        const { username, password } = decoded as { username: string; password: string };
         if (!(username === process.env.ADMIN_NAME && password === process.env.ADMIN_PASS)) {
             return Response.json({
                 success: false,

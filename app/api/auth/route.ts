@@ -11,7 +11,7 @@ const AuthSchema = z.object({
 });
 const CreateAuth = AuthSchema.omit({ captcha: true });
 const generateToken = (payload: string | object) => {
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1y' });
+    const token = jwt.sign(payload, process.env.JWT_SECRET!, { expiresIn: '1y' });
     return `Bearer ${token}`;
 };
 
