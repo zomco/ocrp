@@ -76,7 +76,6 @@ export default function Page() {
                     prevArrow={<SlickArrowPrev className="w-24 h-24" />}
                     nextArrow={<SlickArrowNext />}
                     autoplay={false}
-                    dotPosition="left"
                     infinite={false}
                     fade
                     afterChange={(curr) => {
