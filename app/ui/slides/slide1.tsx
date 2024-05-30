@@ -82,14 +82,14 @@ export default function Slide1({ shown } : { shown: boolean }) {
                         >秋色赛会公益类暑假班</p>
                     </div>
                     <div
-                        className="relative translate-y-[-50%] left-[50%] translate-x-[-50%] w-[70%] h-[15vh]">
+                        className="relative translate-y-[-50%] left-[50%] translate-x-[-50%] h-[15vh]">
                         <Image
-                            className="absolute top-[-10%] left-[-15%] w-[30%] transition-all"
+                            className="absolute top-[-10%] left-[-10%] w-[20%] transition-all"
                             style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}
                             src={dc12} alt="dc12"/>
                         <p
                             className={`absolute w-full h-full text-center content-center flex justify-center items-center text-[5rem] text-[#26a69a] text-nowrap ${mashanzheng.className} transition-all`}
-                            style={{ opacity: shown ? '1' : '0', textWrap: 'nowrap' }}
+                            style={{ opacity: shown ? '1' : '0' }}
                         >邀请函</p>
                     </div>
                     <div
