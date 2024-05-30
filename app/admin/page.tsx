@@ -192,7 +192,18 @@ export default function Page() {
                     <div className="p-4 text-3xl">{`${courseItems[current].label} 报名表`}</div>
                 </Header>
                 <Content style={{margin: '24px 16px 0'}}>
-                {isLoading ? (
+                {!isLoading ? (
+                    <div
+                        style={{
+                            padding: 24,
+                            minHeight: 360,
+                            background: colorBgContainer,
+                            borderRadius: borderRadiusLG,
+                        }}
+                    >
+                        <Table columns={columns} dataSource={data} rowKey="id" pagination={false}/>
+                    </div>
+                ) : (
                     <div role="status" className="min-h-[300px] flex justify-center items-center">
                         <svg aria-hidden="true"
                              className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -205,17 +216,6 @@ export default function Page() {
                                 fill="currentFill"/>
                         </svg>
                         <span className="sr-only">Loading...</span>
-                    </div>
-                ) : (
-                    <div
-                        style={{
-                            padding: 24,
-                            minHeight: 360,
-                            background: colorBgContainer,
-                            borderRadius: borderRadiusLG,
-                        }}
-                    >
-                        <Table columns={columns} dataSource={data} rowKey="id" pagination={false}/>
                     </div>
                 )}
                 </Content>

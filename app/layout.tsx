@@ -1,6 +1,9 @@
+'use client';
+
 import '@/app/ui/global.css';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { inter } from '@/app/ui/fonts';
+import { StyleProvider } from '@ant-design/cssinjs';
 
 export default function RootLayout({
   children,
@@ -10,7 +13,9 @@ export default function RootLayout({
   return (
       <html lang="en">
         <body className={`${inter.className} antialiasing`} suppressHydrationWarning={true}>
-          <AntdRegistry>{children}</AntdRegistry>
+            <StyleProvider hashPriority="high">
+                <AntdRegistry>{children}</AntdRegistry>
+            </StyleProvider>
         </body>
       </html>
   );
