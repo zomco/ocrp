@@ -35,7 +35,7 @@ export default function Slide1({ shown } : { shown: boolean }) {
                 src={dc3} alt="dc3"/>
             <Image className="absolute z-[10] top-3 right-6 animate-spin bg-black rounded-[50%] w-[2em] h-[2em] object-contain p-1" src={dc31} alt="dc31"/>
             <div
-                className="absolute z-[4] top-[2%] left-[50%] translate-x-[-50%] w-[80vw] h-[17vh]">
+                className="absolute z-[4] top-[2%] left-[50%] translate-x-[-50%] w-[80%] h-[17vh]">
                 <div className="absolute w-full text-center text-[#26a69a]">
                     <div className="relative">
                         <Image
@@ -67,7 +67,7 @@ export default function Slide1({ shown } : { shown: boolean }) {
                            style={{fontWeight: 500, lineHeight: '9rem', opacity: shown ? '1' : '0' }}>招生啦</p>
                     </div>
                     <div
-                        className="relative translate-y-[-80%] left-[50%] translate-x-[-50%] w-[80vw] h-[7vh]">
+                        className="relative translate-y-[-80%] left-[50%] translate-x-[-50%] w-[80%] h-[7vh]">
                         <Image
                             className="transition-all"
                             style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
@@ -82,14 +82,14 @@ export default function Slide1({ shown } : { shown: boolean }) {
                         >秋色赛会公益类暑假班</p>
                     </div>
                     <div
-                        className="relative translate-y-[-50%] left-[50%] translate-x-[-50%] w-[70vw] h-[15vh]">
+                        className="relative translate-y-[-50%] left-[50%] translate-x-[-50%] w-[70%] h-[15vh]">
                         <Image
                             className="absolute top-[-10%] left-[-15%] w-[30%] transition-all"
                             style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}
                             src={dc12} alt="dc12"/>
                         <p
                             className={`absolute w-full h-full text-center content-center flex justify-center items-center text-[5rem] text-[#26a69a] text-nowrap ${mashanzheng.className} transition-all`}
-                            style={{ opacity: shown ? '1' : '0' }}
+                            style={{ opacity: shown ? '1' : '0', textWrap: 'nowrap' }}
                         >邀请函</p>
                     </div>
                     <div
@@ -106,7 +106,7 @@ export default function Slide1({ shown } : { shown: boolean }) {
                 </div>
             </div>
             <div
-                className="absolute z-[5] bottom-[0%] left-[50%] translate-x-[-50%] w-[100vw] h-[10vh]">
+                className="absolute z-[5] bottom-[0%] left-[50%] translate-x-[-50%] w-[100%] h-[10vh]">
                 <Image
                     className="transition-all"
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}

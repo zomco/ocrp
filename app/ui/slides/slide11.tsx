@@ -29,7 +29,7 @@ export default function Slide9({ shown } : { shown: boolean }) {
                 style={{transform: shown ? 'translateY(0em)' : 'translateY(8rem)', opacity: shown ? '1' : '0' }}
                 src={dc3} alt="dc3"/>
             <Image className="absolute z-[10] top-3 right-6 animate-spin bg-black rounded-[50%] w-[2em] h-[2em] object-contain p-1" src={dc31} alt="dc31"/>
-            <div className="absolute z-[5] top-[10%] left-[50%] translate-x-[-50%] w-[50vw] h-[8vh]">
+            <div className="absolute z-[5] top-[10%] left-[50%] translate-x-[-50%] w-[50%] h-[8vh]">
                 <Image
                     className="transition-all"
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0' }}
@@ -52,7 +52,7 @@ export default function Slide9({ shown } : { shown: boolean }) {
                 >图片展示
                 </div>
             </div>
-            <div className="absolute z-[6] top-[20%] left-[50%] translate-x-[-50%] w-[80vw] h-[60vh]">
+            <div className="absolute z-[6] top-[20%] left-[50%] translate-x-[-50%] w-[80%] h-[60vh]">
                 <Image
                     className="absolute top-[40%] left-[-12%] w-[20%] transition-all"
                     style={{transform: shown ? 'translateX(0em)' : 'translateX(2rem)', opacity: shown ? '1' : '0' }}
@@ -81,7 +81,7 @@ export default function Slide9({ shown } : { shown: boolean }) {
 
                     src={dc6} alt="dc6"/>
             </div>
-            <div className="absolute z-[7] bottom-[0%] left-[50%] translate-x-[-50%] w-[100vw] h-[10vh]">
+            <div className="absolute z-[7] bottom-[0%] left-[50%] translate-x-[-50%] w-[100%] h-[10vh]">
                 <Image
                     className="transition-all"
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0' }}

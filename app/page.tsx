@@ -57,14 +57,13 @@ export default function Page() {
     }
     return (
         <main className="flex justify-center">
-            <div className="w-screen h-dvh portrait:hidden flex justify-center items-center">
-                <Result
-                    icon={<SmileOutlined />}
-                    title="请在竖屏浏览"
-                />
-            </div>
+            {/*<div className="w-screen h-dvh portrait:hidden flex justify-center items-center">*/}
+            {/*    <Result*/}
+            {/*        icon={<SmileOutlined />}*/}
+            {/*        title="请在竖屏浏览"*/}
+            {/*    />*/}
+            {/*</div>*/}
             <div
-                className="landscape:hidden"
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
                 onTouchEnd={onTouchEnd}
