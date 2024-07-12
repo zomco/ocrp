@@ -11,6 +11,7 @@ export default function P9({ shown } : { shown: boolean }) {
             <Image
                 className="absolute z-[-1] transition-all"
                 fill
+                quality={100}
                 src={p9}
                 style={{ objectFit: 'cover', opacity: shown ? '1' : '0' }}
                 alt="p9"/>
