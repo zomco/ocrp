@@ -1,21 +1,16 @@
 'use client';
 
 import React, {useRef, useState} from 'react'
-import Slide1 from './ui/slides/slide1';
-import Slide2 from './ui/slides/slide2';
-import Slide3 from './ui/slides/slide3';
-import Slide4 from './ui/slides/slide4';
-import Slide5 from './ui/slides/slide5';
-import Slide6 from './ui/slides/slide6';
-import Slide7 from './ui/slides/slide7';
-import Slide8 from './ui/slides/slide8';
-import Slide9 from './ui/slides/slide9';
-import Slide10 from './ui/slides/slide10';
-import Slide11 from './ui/slides/slide11';
-import Slide12 from './ui/slides/slide12';
-import Slide13 from './ui/slides/slide13';
-import Slide14 from './ui/slides/slide14';
-import Slide15 from './ui/slides/slide15';
+import P1 from './ui/ps/p1';
+import P2 from './ui/ps/p2';
+import P3 from './ui/ps/p3';
+import P4 from './ui/ps/p4';
+import P5 from './ui/ps/p5';
+import P6 from './ui/ps/p6';
+import P7 from './ui/ps/p7';
+import P8 from './ui/ps/p8';
+import P9 from './ui/ps/p9';
+
 import { Carousel, Result } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import {CustomArrowProps} from "@ant-design/react-slick";
@@ -81,21 +76,15 @@ export default function Page() {
                         setCurrent(curr);
                     }}
                 >
-                    <Slide1 shown={ current === 0 }/>
-                    <Slide2 shown={ current === 1 }/>
-                    <Slide3 shown={ current === 2 }/>
-                    <Slide4 shown={ current === 3 }/>
-                    <Slide5 shown={ current === 4 }/>
-                    <Slide6 shown={ current === 5 }/>
-                    <Slide7 shown={ current === 6 }/>
-                    <Slide8 shown={ current === 7 }/>
-                    <Slide9 shown={ current === 8 }/>
-                    <Slide10 shown={ current === 9 }/>
-                    <Slide11 shown={ current === 10 }/>
-                    <Slide12 shown={ current === 11 }/>
-                    <Slide13 shown={ current === 12 }/>
-                    <Slide14 shown={ current === 13 }/>
-                    <Slide15 shown={ current === 14 }/>
+                    <P1 shown={ current === 0 }/>
+                    <P2 shown={ current === 1 }/>
+                    <P3 shown={ current === 2 }/>
+                    <P4 shown={ current === 3 }/>
+                    <P5 shown={ current === 4 }/>
+                    <P6 shown={ current === 5 }/>
+                    <P7 shown={ current === 6 }/>
+                    <P8 shown={ current === 7 }/>
+                    <P9 shown={ current === 8 }/>
                 </Carousel>
             </div>
         </main>
