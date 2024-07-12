@@ -26,6 +26,7 @@ export default function Slide6({ shown } : { shown: boolean }) {
     const [isLoading, setIsLoading] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
     const [isSubmit, setIsSubmit] = useState(false);
+    const formOpened = false;
     return (
         <div className="relative h-screen">
             {contextHolder}
@@ -74,13 +75,24 @@ export default function Slide6({ shown } : { shown: boolean }) {
                     className="absolute z-[11] top-[40%] left-[-20%] w-[20%] transition-all"
                     style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     src={dc12} alt="dc12"/>
-                {isSubmit ? (
+                {!formOpened ? (
+                    <Result
+                        status="info"
+                        title="报名尚未开放"
+                        subTitle="报名入口于7月18日开放"
+                        className="transition-all"
+                        style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
+                    />
+                ):(
+                    isSubmit ? (
                     <Result
                         status="success"
                         title="报名成功"
                         subTitle="请等候工作人员联系"
+                        className="transition-all"
+                        style={{transform: shown ? 'scale(1)' : 'scale(0)', opacity: shown ? '1' : '0' }}
                     />
-                ):(
+                    ):(
                     <Form
                         name="normal_login"
                         className="transition-all"
@@ -158,7 +170,7 @@ export default function Slide6({ shown } : { shown: boolean }) {
                             >提交</Button>
                         </Form.Item>
                     </Form>
-                )}
+                ))}
             </div>
             <div className="absolute z-[7] bottom-[0%] left-[50%] translate-x-[-50%] w-[100%] h-[10vh]">
                 <Image
