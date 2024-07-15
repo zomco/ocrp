@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import p2 from "@/public/ps/hp2.png";
+import p2 from "@/public/ps/mp2.png";
 import React from "react";
 
 

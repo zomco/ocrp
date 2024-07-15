@@ -15,14 +15,17 @@ const courseItems: MenuItem[] = [{
     key: '佛山剪纸',
     label: '佛山剪纸'
 }, {
-    key: '佛山狮头',
-    label: '佛山狮头'
+    key: '佛山木雕',
+    label: '佛山木雕'
 }, {
-    key: '佛山秋色',
-    label: '佛山秋色'
+    key: '小龙舟制作',
+    label: '小龙舟制作'
 }, {
-    key: '金箔锻造技艺',
-    label: '金箔锻造技艺'
+    key: '岭南书法',
+    label: '岭南书法'
+}, {
+    key: '大良鱼灯',
+    label: '大良鱼灯'
 }];
 const items: MenuProps['items'] = [{
     key: '报名表',

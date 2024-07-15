@@ -9,7 +9,7 @@ import jwt from "jsonwebtoken";
 
 const RegistrationSchema = z.object({
     id: z.string(),
-    course: z.enum(['佛山剪纸', '佛山狮头', '佛山秋色', '金铂锻造技艺']),
+    course: z.enum(['佛山剪纸', '佛山木雕', '小龙舟制作', '岭南书法', '大良鱼灯']),
     parent: z.string(),
     phone: z.string(),
     student: z.string(),
@@ -108,6 +108,17 @@ export async function POST(request: Request) {
             phone: body.phone,
             student: body.student,
         });
+        const data = await sql`
+              SELECT COUNT(*)
+              FROM registration
+              WHERE registration.course = ${course}`;
+        if (data.rows.length > 0 && parseInt(data.rows[0].count) >= 40) {
+            return Response.json({
+                success: false,
+                message: '课程满员',
+                data: {}
+            })
+        }
         await sql`
             INSERT INTO registration (course, parent, phone, student)
             VALUES (${course}, ${parent}, ${phone}, ${student})`;

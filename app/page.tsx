@@ -10,6 +10,7 @@ import P6 from './ui/ps/p6';
 import P7 from './ui/ps/p7';
 import P8 from './ui/ps/p8';
 import P9 from './ui/ps/p9';
+import P0 from './ui/ps/p0';
 
 import { Carousel, Result } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
@@ -84,7 +85,7 @@ export default function Page() {
                     <P6 shown={ current === 5 }/>
                     <P7 shown={ current === 6 }/>
                     <P8 shown={ current === 7 }/>
-                    <P9 shown={ current === 8 }/>
+                    <P0 shown={ current === 8 }/>
                 </Carousel>
             </div>
         </main>

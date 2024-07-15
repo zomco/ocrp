@@ -1,0 +1,57 @@
+.ym-form-item {
+    margin-bottom: 36px!important;
+}
+
+.yw-input::placeholder {
+    color: #616161!important;
+    font-size: 22px!important;
+    font-weight: 490!important;
+}
+
+.yw-input {
+    border-radius: 0!important;
+    border-color: #FB8B87!important;
+    border-width: 2px!important;
+    height: 48px!important;
+    font-size: 22px!important;
+}
+
+.yw-form-button {
+    margin-top: 48px!important;
+}
+
+.yw-button {
+    border-radius: 0!important;
+    border-color: #FB8B87!important;
+    background-color: #FB8B87!important;
+    height: 48px!important;
+    font-size: 22px!important;
+}
+
+.yw-select {
+    border-radius: 0!important;
+    border-color: #FB8B87!important;
+    border-width: 2px!important;
+    height: 48px!important;
+    font-size: 22px!important;
+}
+
+.yw-select .ant-select-selection-placeholder {
+    color: #616161!important;
+    font-size: 22px!important;
+    font-weight: 490!important;
+}
+
+.yw-select .ant-select-selector {
+    border-radius: 0!important;
+    font-size: 22px!important;
+}
+
+.ant-select-focused .ant-select-selector {
+    border-color: #FFFFFF!important;
+}
+
+.yw-option {
+    height: 48px!important;
+    font-size: 22px!important;
+}
