@@ -122,7 +122,7 @@ export async function POST(request: Request) {
               SELECT COUNT(*)
               FROM registration
               WHERE registration.course = ${course}`;
-        if (data.rows.length > 0 && parseInt(data.rows[0].count) >= 40) {
+        if (data.rows.length > 0 && parseInt(data.rows[0].count) > 50) {
             return Response.json({
                 success: false,
                 message: '课程满员',
