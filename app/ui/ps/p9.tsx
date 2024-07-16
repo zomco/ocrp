@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import p9 from "@/public/ps/mod.png";
+import p9 from "@/public/ps/mp9.png";
 import React from "react";
 
 

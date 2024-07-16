@@ -144,7 +144,10 @@ export default function P0({ shown } : { shown: boolean }) {
                             </Form.Item>
                         </Form>
                     )}
-                <div className="flex flex-col content-center justify-center">
+                <div
+                    className="flex flex-col content-center justify-center transition-all"
+                    style={{ opacity: shown ? '1' : '0'}}
+                >
                     <div className="text-center yw-text1">活动咨询:0757-28338073</div>
                     <div className="text-center yw-text2">佛山市非物质文化遗产保护中心</div>
                     <div className="text-center yw-text3">注：信息提交成功后，请学生家长留意工作人员电话通知(来电号码为固话)，经电话确认后方为报名成功</div>
