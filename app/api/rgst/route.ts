@@ -91,6 +91,16 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
+    const startMills = new Date("2024-07-17T10:00:00.000+08:00").getTime();
+    const stopMills = new Date("2024-07-18T0:00:00.000+08:00").getTime();
+    const currentMills = Date.now();
+    if (startMills - currentMills > 0) {
+        return Response.json({
+            success: false,
+            message: '报名未开始',
+            data: [(startMills - currentMills) / 1000],
+        })
+    }
     const headersList = headers();
     const referer = headersList.get('referer');
     const body = await request.json();
