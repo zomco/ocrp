@@ -20,7 +20,7 @@ export default function P0({ shown } : { shown: boolean }) {
         <div className="relative h-screen">
             {contextHolder}
             <Image className="absolute z-[-1]" fill src={bg} alt="bg"/>
-            <div className="absolute z-[32] top-[35%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[60%]">
+            <div className="absolute z-[32] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[60%]">
                 <div
                     className={`content-center flex justify-center items-center transition-all mb-14`}
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(-2rem)', opacity: shown ? '1' : '0'}}
@@ -150,7 +150,7 @@ export default function P0({ shown } : { shown: boolean }) {
                     <div className="text-center yw-text3">注：信息提交成功后，请学生家长留意工作人员电话通知(来电号码为固话)，经电话确认后方为报名成功</div>
                 </div>
             </div>
-            <div className="absolute z-[7] bottom-[-10%] left-[50%] translate-x-[-50%] w-[100%] h-[30vh]">
+            <div className="absolute z-[7] bottom-[-20%] left-[50%] translate-x-[-50%] w-[100%] h-[30vh]">
                 <Image
                     className="absolute bottom-[-8%] right-[-18%] w-[80%] transition-all"
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0'}}
