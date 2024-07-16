@@ -18,6 +18,7 @@
 
 .yw-form-button {
     margin-top: 48px!important;
+    margin-bottom: 36px!important;
 }
 
 .yw-button {
@@ -54,4 +55,21 @@
 .yw-option {
     height: 48px!important;
     font-size: 22px!important;
+}
+
+.yw-text1 {
+    font-size: 15px!important;
+    font-weight: 550!important;
+    margin-bottom: 10px!important;
+}
+
+.yw-text2 {
+    font-size: 16px!important;
+    font-weight: 550!important;
+    margin-bottom: 14px!important;
+}
+
+.yw-text3 {
+    font-size: 12px!important;
+    font-weight: 500!important;
 }

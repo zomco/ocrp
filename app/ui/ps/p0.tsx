@@ -144,8 +144,13 @@ export default function P0({ shown } : { shown: boolean }) {
                             </Form.Item>
                         </Form>
                     )}
+                <div className="flex flex-col content-center justify-center">
+                    <div className="text-center yw-text1">活动咨询:0757-28338073</div>
+                    <div className="text-center yw-text2">佛山市非物质文化遗产保护中心</div>
+                    <div className="text-center yw-text3">注：信息提交成功后，请学生家长留意工作人员电话通知(来电号码为固话)，经电话确认后方为报名成功</div>
+                </div>
             </div>
-            <div className="absolute z-[7] bottom-[0%] left-[50%] translate-x-[-50%] w-[100%] h-[30vh]">
+            <div className="absolute z-[7] bottom-[-5%] left-[50%] translate-x-[-50%] w-[100%] h-[30vh]">
                 <Image
                     className="absolute bottom-[-8%] right-[-18%] w-[80%] transition-all"
                     style={{transform: shown ? 'translateY(0em)' : 'translateY(2rem)', opacity: shown ? '1' : '0'}}

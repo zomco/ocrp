@@ -9,7 +9,6 @@ import P5 from './ui/ps/p5';
 import P6 from './ui/ps/p6';
 import P7 from './ui/ps/p7';
 import P8 from './ui/ps/p8';
-import P9 from './ui/ps/p9';
 import P0 from './ui/ps/p0';
 
 import { Carousel, Result } from 'antd';
