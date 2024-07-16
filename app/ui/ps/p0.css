@@ -1,5 +1,5 @@
 .ym-form-item {
-    margin-bottom: 36px!important;
+    margin-bottom: 28px!important;
 }
 
 .yw-input::placeholder {
@@ -12,13 +12,13 @@
     border-radius: 0!important;
     border-color: #FB8B87!important;
     border-width: 2px!important;
-    height: 48px!important;
+    height: 50px!important;
     font-size: 22px!important;
 }
 
 .yw-form-button {
-    margin-top: 48px!important;
-    margin-bottom: 36px!important;
+    margin-top: 30px!important;
+    margin-bottom: 18px!important;
 }
 
 .yw-button {
@@ -33,7 +33,7 @@
     border-radius: 0!important;
     border-color: #FB8B87!important;
     border-width: 2px!important;
-    height: 48px!important;
+    height: 50px!important;
     font-size: 22px!important;
 }
 
@@ -53,23 +53,26 @@
 }
 
 .yw-option {
-    height: 48px!important;
+    height: 50px!important;
     font-size: 22px!important;
 }
 
 .yw-text1 {
+    color: #616161!important;
+    font-size: 15px!important;
+    font-weight: 550!important;
+    margin-bottom: 2px!important;
+}
+
+.yw-text2 {
+    color: #616161!important;
     font-size: 15px!important;
     font-weight: 550!important;
     margin-bottom: 10px!important;
 }
 
-.yw-text2 {
-    font-size: 16px!important;
-    font-weight: 550!important;
-    margin-bottom: 14px!important;
-}
-
 .yw-text3 {
-    font-size: 12px!important;
-    font-weight: 500!important;
+    color: #616161!important;
+    font-size: 10px!important;
+    font-weight: 550!important;
 }
