@@ -84,7 +84,7 @@ export default function Page() {
                     <P6 shown={ current === 5 }/>
                     <P7 shown={ current === 6 }/>
                     <P8 shown={ current === 7 }/>
-                    <P0 shown={ current === 8 }/>
+                    {/*<P0 shown={ current === 8 }/>*/}
                     {/*<P9 shown={ current === 9} />*/}
                 </Carousel>
             </div>
