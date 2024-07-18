@@ -9,6 +9,7 @@ import P5 from './ui/ps/p5';
 import P6 from './ui/ps/p6';
 import P7 from './ui/ps/p7';
 import P8 from './ui/ps/p8';
+import P10 from './ui/ps/p10';
 import P0 from './ui/ps/p0';
 
 import { Carousel, Result } from 'antd';
@@ -85,7 +86,7 @@ export default function Page() {
                     <P7 shown={ current === 6 }/>
                     <P8 shown={ current === 7 }/>
                     {/*<P0 shown={ current === 8 }/>*/}
-                    {/*<P9 shown={ current === 9} />*/}
+                    <P10 shown={ current === 8} />
                 </Carousel>
             </div>
         </main>
