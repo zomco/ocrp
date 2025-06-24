@@ -5,7 +5,7 @@
 
 export type Registration = {
   id: string;
-  course: '佛山剪纸' | '佛山木雕' | '小龙舟制作' | '岭南书法' | '大良鱼灯';
+  course: '佛山彩灯' | '广东剪纸' | '佛山秋色' | '佛山狮头';
   parent: string;
   phone: string;
   student: string;

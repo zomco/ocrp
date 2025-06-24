@@ -9,7 +9,7 @@ import jwt from "jsonwebtoken";
 
 const RegistrationSchema = z.object({
     id: z.string(),
-    course: z.enum(['佛山剪纸', '佛山木雕', '小龙舟制作', '岭南书法', '大良鱼灯']),
+    course: z.enum(['佛山彩灯', '广东剪纸', '佛山秋色', '佛山狮头']),
     parent: z.string(),
     phone: z.string(),
     student: z.string(),
@@ -91,16 +91,16 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
-    const startMills = new Date("2024-07-17T10:00:00.000+08:00").getTime();
-    const stopMills = new Date("2024-07-18T0:00:00.000+08:00").getTime();
-    const currentMills = Date.now();
-    if (startMills - currentMills > 0) {
-        return Response.json({
-            success: false,
-            message: '报名未开始',
-            data: [(startMills - currentMills) / 1000],
-        })
-    }
+    // const startMills = new Date("2025-07-04T10:00:00.000+08:00").getTime();
+    // const stopMills = new Date("2025-07-05T0:00:00.000+08:00").getTime();
+    // const currentMills = Date.now();
+    // if (startMills - currentMills > 0) {
+    //     return Response.json({
+    //         success: false,
+    //         message: '报名未开始',
+    //         data: [(startMills - currentMills) / 1000],
+    //     })
+    // }
     const headersList = headers();
     const referer = headersList.get('referer');
     const body = await request.json();

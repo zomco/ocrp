@@ -1,16 +1,15 @@
 'use client';
 
 import React, {useRef, useState} from 'react'
-import P1 from './ui/ps/p1';
-import P2 from './ui/ps/p2';
-import P3 from './ui/ps/p3';
-import P4 from './ui/ps/p4';
-import P5 from './ui/ps/p5';
-import P6 from './ui/ps/p6';
-import P7 from './ui/ps/p7';
-import P8 from './ui/ps/p8';
-import P10 from './ui/ps/p10';
-import P0 from './ui/ps/p0';
+import P1 from './ui/2025/ps/p1';
+import P2 from './ui/2025/ps/p2';
+import P3 from './ui/2025/ps/p3';
+import P4 from './ui/2025/ps/p4';
+import P5 from './ui/2025/ps/p5';
+import P6 from './ui/2025/ps/p6';
+import P7 from './ui/2025/ps/p7';
+import P10 from './ui/2025/ps/p10';
+import P0 from './ui/2025/ps/p0';
 
 import { Carousel, Result } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
@@ -84,9 +83,8 @@ export default function Page() {
                     <P5 shown={ current === 4 }/>
                     <P6 shown={ current === 5 }/>
                     <P7 shown={ current === 6 }/>
-                    <P8 shown={ current === 7 }/>
-                    {/*<P0 shown={ current === 8 }/>*/}
-                    <P10 shown={ current === 8} />
+                    <P0 shown={ current === 7 }/>
+                    {/* <P10 shown={ current === 7} /> */}
                 </Carousel>
             </div>
         </main>
