@@ -19,7 +19,7 @@ const RegistrationSchema = z.object({
 const CreateRegistration = RegistrationSchema.omit({ id: true, created_at: true, updated_at: true, });
 
 export async function GET(request: NextRequest) {
-    const headersList = headers();
+    const headersList = await headers();
     const authentication = headersList.get('authentication');
     if (!authentication) {
         return Response.json({
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
     //         data: [(startMills - currentMills) / 1000],
     //     })
     // }
-    const headersList = headers();
+    const headersList = await headers();
     const referer = headersList.get('referer');
     const body = await request.json();
     if (!body) {
