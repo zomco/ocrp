@@ -156,6 +156,7 @@ export default function Page() {
                 breakpoint="lg"
                 collapsedWidth="0"
                 defaultCollapsed
+                collapsible
                 onBreakpoint={(broken) => {
                     console.log(broken);
                 }}
