@@ -124,10 +124,10 @@ export default function P0({ shown } : { shown: boolean }) {
                                 rules={[{required: true, message: '选择课程'}]}
                             >
                                 <Select className={'yw-select'} size="large" placeholder="请选择课程">
-                                    <Option className={'yw-option'} value="佛山彩灯">佛山彩灯</Option>
-                                    <Option className={'yw-option'} value="广东剪纸">广东剪纸</Option>
-                                    <Option className={'yw-option'} value="佛山秋色">佛山秋色</Option>
-                                    <Option className={'yw-option'} value="佛山狮头">佛山狮头</Option>
+                                    <Option className={'yw-option'} value="佛山彩灯">灯彩（佛山彩灯）</Option>
+                                    <Option className={'yw-option'} value="广东剪纸">剪纸（广东剪纸）</Option>
+                                    <Option className={'yw-option'} value="佛山秋色">中秋节（佛山秋色）</Option>
+                                    <Option className={'yw-option'} value="佛山狮头">彩扎（佛山狮头）</Option>
                                 </Select>
                             </Form.Item>
                             <Form.Item
