@@ -91,16 +91,16 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
-    // const startMills = new Date("2025-07-04T10:00:00.000+08:00").getTime();
-    // const stopMills = new Date("2025-07-05T0:00:00.000+08:00").getTime();
-    // const currentMills = Date.now();
-    // if (startMills - currentMills > 0) {
-    //     return Response.json({
-    //         success: false,
-    //         message: '报名未开始',
-    //         data: [(startMills - currentMills) / 1000],
-    //     })
-    // }
+    const startMills = new Date("2025-06-04T10:00:00.000+08:00").getTime();
+    const stopMills = new Date("2025-07-05T0:00:00.000+08:00").getTime();
+    const currentMills = Date.now();
+    if (startMills - currentMills > 0) {
+        return Response.json({
+            success: false,
+            message: '报名未开始',
+            data: [(startMills - currentMills) / 1000],
+        })
+    }
     const headersList = await headers();
     const referer = headersList.get('referer');
     const body = await request.json();
@@ -122,7 +122,8 @@ export async function POST(request: Request) {
               SELECT COUNT(*)
               FROM registration
               WHERE registration.course = ${course}`;
-        if (data.rows.length > 0 && parseInt(data.rows[0].count) > 50) {
+        console.log(`registration count: ${parseInt(data.rows[0].count)}`);
+        if (data.rows.length > 0 && parseInt(data.rows[0].count) > 40) {
             return Response.json({
                 success: false,
                 message: '课程满员',
