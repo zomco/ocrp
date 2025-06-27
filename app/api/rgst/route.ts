@@ -122,8 +122,7 @@ export async function POST(request: Request) {
               SELECT COUNT(*)
               FROM registration
               WHERE registration.course = ${course}`;
-        console.log(`registration count: ${parseInt(data.rows[0].count)}`);
-        if (data.rows.length > 0 && parseInt(data.rows[0].count) > 40) {
+        if (data.rows.length > 0 && parseInt(data.rows[0].count) >= 40) {
             return Response.json({
                 success: false,
                 message: '课程满员',
