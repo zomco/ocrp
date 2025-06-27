@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import p3 from "@/public/2024/ps/mp3.png";
+import p3 from "@/public/2024/ps/mp3.jpg";
 import React from "react";
 
 
