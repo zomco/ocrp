@@ -91,7 +91,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: Request) {
-    const startMills = new Date("2025-06-04T10:00:00.000+08:00").getTime();
+    const startMills = new Date("2025-07-04T10:00:00.000+08:00").getTime();
     const stopMills = new Date("2025-07-05T0:00:00.000+08:00").getTime();
     const currentMills = Date.now();
     if (startMills - currentMills > 0) {
